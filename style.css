@@ -1,0 +1,71 @@
+.main-body {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 176px 1fr;
+}
+
+.sidebar {
+    background-color: aqua;
+    display: grid;
+    gap: 24px;
+    align-content: start;
+}
+
+.sidebar-spacer {
+    height: 24px;
+}
+
+.header {
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 50px 50px;
+    justify-items: stretch;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.panes {
+    background-color: burlywood;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 24px 1fr;
+    padding: 24px;
+}
+
+.left-panes {
+    background-color: aquamarine;
+    grid-area: 2 / 1 / 2 / 2;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+}
+
+.right-panes {
+    background-color: cadetblue;
+    display: grid;
+    grid-area: 1 / 2 / 3 / 3;
+    grid-template-rows: repeat(auto-fit, 24px minmax(250px, 1fr));
+    grid-auto-rows: 24px minmax(250px, 1fr);
+}
+
+.project-pane, .info-pane {
+    background-color: antiquewhite;
+}
+
+.project-header {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.info-header {
+
+}
