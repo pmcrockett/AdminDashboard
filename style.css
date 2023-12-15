@@ -38,6 +38,16 @@
     height: 24px;
 }
 
+.sidebar-item > img {
+    height: 32px;
+    width: 32px;
+}
+
+.sidebar-item:first-child > img {
+    height: 48px;
+    width: 48px;
+}
+
 .content {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -61,6 +71,11 @@
     width: 100%;
 }
 
+.search > img {
+    height: 32px;
+    width: 32px;
+}
+
 .account {
     display: flex;
     justify-content: end;
@@ -70,6 +85,11 @@
 
 .account > div, .account > img {
     margin: 0px 4px 0px 4px;
+}
+
+.account > img {
+    height: 32px;
+    width: 32px;
 }
 
 .greeting {
@@ -82,6 +102,8 @@
 
 .greeting > img {
     grid-area: 1 / 1 / 3 / 1;
+    height: 48px;
+    width: 48px;
 }
 
 .buttons {
@@ -99,6 +121,11 @@
     align-items: center;
     padding: 4px;
     box-shadow: 1px 1px 4px 0.3px black;
+}
+
+.header-button > img {
+    height: 24px;
+    width: 24px;
 }
 
 .panes {
@@ -158,21 +185,35 @@
     padding: 0px 8px 0px 8px;
 }
 
-.project-pane-footer::after {
-    content: "share icons";
+.project-pane-footer {
     display: grid;
+    grid-auto-flow: column;
     justify-content: right;
     align-content: end;
     align-items: end;
+    gap: 4px;
     padding: 16px 8px 16px 8px;
+}
+
+.project-pane-footer > a > img {
+    height: 16px;
+    width: 16px;
+}
+
+.fav-img {
+    content: url("./resources/star-plus.svg");
+}
+
+.open-img {
+    content: url("./resources/open-in-app.svg");
+}
+
+.share-img {
+    content: url("./resources/share-variant.svg");
 }
 
 .project-header {
     grid-area: 1 / 1 / 3 / 2;
-}
-
-.info-header {
-
 }
 
 .announcements-pane {
@@ -195,6 +236,8 @@
 
 .trending > img {
     grid-area: 1 / 1 / 3 / 2;
+    height: 48px;
+    width: 48px;
 }
 
 .trending > div:nth-child(2) {
