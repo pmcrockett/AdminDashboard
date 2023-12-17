@@ -1,5 +1,7 @@
 const root = document.querySelector(":root");
 const themeButton = document.querySelector(".theme");
+const fontSizeUp = document.querySelector(".font-size-up");
+const fontSizeDown = document.querySelector(".font-size-down");
 
 themeButton.addEventListener("click", function() {
     if (getComputedStyle(root).getPropertyValue("--theme") == "dark") {
@@ -32,16 +34,27 @@ themeButton.addEventListener("click", function() {
         root.style.setProperty("--active-col-filter", "invert(74%) sepia(27%) saturate(5372%) hue-rotate(353deg) brightness(87%) contrast(90%)");
         root.style.setProperty("--text-dark-col-filter", "invert(4%) sepia(5%) saturate(5539%) hue-rotate(165deg) brightness(98%) contrast(91%)");
         root.style.setProperty("--panes-bg-filter", "multiply");
-        /* 
-        --theme: "dark";
-        --main-bg-col: #060108;
-        --lower-bg-col: #525968;
-        --sidebar-bg-col: #0f0518;
-        --hover-col: #ffb62f;
-        --active-col: #d68915;
-        --link-col: #ffe884;
-        --text-light-col: #f0f8ff;
-        --text-dark-col: #10161b;
-        */
     }
 });
+
+fontSizeUp.addEventListener("click", function() {
+    let size = getFontBaseSize();
+
+    if (size < 48) {
+        root.style.setProperty("--font-size-base", String(size + 2) + "px");
+    }
+});
+
+fontSizeDown.addEventListener("click", function() {
+    let size = getFontBaseSize();
+
+    if (size > 4) {
+        root.style.setProperty("--font-size-base", String(size - 2) + "px");
+    }
+});
+
+function getFontBaseSize() {
+    let size = getComputedStyle(root).getPropertyValue("--font-size-base");
+    size = parseInt(size.slice(0, size.length - 2));
+    return size;
+}

@@ -25,6 +25,7 @@ a {
 
 a:hover {
     color: var(--hover-col);
+    cursor: pointer;
 }
 
 a:active {
@@ -124,7 +125,7 @@ a:active > img {
 .header {
     background-color: var(--main-bg-col);
     display: grid;
-    grid-template-columns: 1fr minmax(300px, max-content);
+    grid-template-columns: 1fr max-content;
     grid-template-rows: minmax(50px, max-content) minmax(50px, max-content);
     justify-items: stretch;
     align-items: center;
@@ -139,15 +140,22 @@ a:active > img {
 
 .search {
     display: flex;
+    align-items: center;
 }
 
 .search-bar {
     width: 100%;
     color: var(--text-light-col);
     background-color: var(--main-bg-col);
-    align-items: center;
     font-size: calc(var(--font-size-base) + 2px);
     height: calc(var(--font-size-base) + 16px);
+}
+
+.search > a {
+    height: 32px;
+    width: 32px;
+    display: grid;
+    align-items: center;
 }
 
 .search > a > img {
@@ -160,16 +168,38 @@ a:active > img {
     justify-content: end;
     align-items: center;
     margin-right: 24px;
+    margin-left: 24px;
     font-size: calc(var(--font-size-base) + 2px);
 }
 
-.account > div, .account > a > img {
+.account > div, .account > a {
     margin: 0px 4px 0px 4px;
+}
+
+.account > a {
+    height: 32px;
+    width: 32px;
+    display: grid;
+    align-items: center;
 }
 
 .account > a > img {
     height: 32px;
     width: 32px;
+}
+
+.font-size {
+    display: grid;
+    grid-template-rows: 16px 16px;
+    grid-template-columns: 16px;
+    align-content: start;
+    align-items: start;
+}
+
+.font-size > a {
+    font-size: 0px;
+    width: 16px;
+    height: 16px;
 }
 
 .greeting {
@@ -209,6 +239,7 @@ a:active > img {
     align-items: center;
     padding: 4px;
     box-shadow: 1px 1px 4px 0.3px var(--active-col);
+    cursor: pointer;
 }
 
 .header-button:hover {
