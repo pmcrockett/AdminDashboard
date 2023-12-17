@@ -11,11 +11,11 @@
 }
 
 img {
-    filter: invert(94%) sepia(88%) saturate(647%) hue-rotate(318deg) brightness(102%) contrast(110%);
+    filter: var(--link-col-filter);
 }
 
 button > img {
-    filter: none;
+    filter: var(--text-dark-col-filter);
 }
 
 a {
@@ -32,27 +32,29 @@ a:active {
 }
 
 a > img:hover, a:hover > img, .trending > a:hover + a > img {
-    filter: invert(85%) sepia(25%) saturate(1824%) hue-rotate(329deg) brightness(98%) contrast(108%);
-}
-
-.trending > a:hover > img {
-
+    filter: var(--hover-col-filter);
 }
 
 a:active > img {
-    filter: invert(74%) sepia(27%) saturate(5372%) hue-rotate(353deg) brightness(87%) contrast(90%);
+    filter: var(--active-col-filter);
 }
 
 :root {
-    --main-bg-col: rgb(6, 1, 8);
-    --lower-bg-col: rgb(82, 89, 104);
-    --sidebar-bg-col: rgb(15, 5, 24);
-    --hover-col: #ffb62f;
-    --active-col: #d68915;
-    --link-col: #ffe884;
+    --theme: "light";
+    --main-bg-col: #fefcff;
+    --lower-bg-col: #ffffff;
+    --sidebar-bg-col: #ffeafe;
+    --hover-col: #d09cfa;
+    --active-col: #5d2986;
+    --link-col: #8e4bc5;
+    --text-light-col: #141402;
+    --text-dark-col: #fffff4;
+    --link-col-filter: invert(44%) sepia(21%) saturate(1621%) hue-rotate(230deg) brightness(84%) contrast(107%);
+    --hover-col-filter: invert(66%) sepia(87%) saturate(796%) hue-rotate(207deg) brightness(98%) contrast(101%);
+    --active-col-filter: invert(21%) sepia(23%) saturate(4443%) hue-rotate(251deg) brightness(93%) contrast(98%);
+    --text-dark-col-filter: invert(95%) sepia(2%) saturate(1227%) hue-rotate(356deg) brightness(106%) contrast(101%);
+    --panes-bg-filter: hard-light;
     --font-size-base: 14px;
-    --text-light-col: aliceblue;
-    --text-dark-col: rgb(16, 22, 27);
     font-size: var(--font-size-base);
 }
 
@@ -141,7 +143,8 @@ a:active > img {
 
 .search-bar {
     width: 100%;
-    color: var(--text-dark-col);
+    color: var(--text-light-col);
+    background-color: var(--main-bg-col);
     align-items: center;
     font-size: calc(var(--font-size-base) + 2px);
     height: calc(var(--font-size-base) + 16px);
@@ -224,7 +227,7 @@ a:active > img {
 .panes {
     background: no-repeat center/cover url(./resources/forest_sky.jpg);
     background-color: var(--lower-bg-col);
-    background-blend-mode:multiply;
+    background-blend-mode: var(--panes-bg-filter);
     display: grid;
     grid-template-columns: 1fr minmax(200px, min-content);
     grid-template-rows: minmax(24px, max-content) 1fr;
@@ -347,11 +350,7 @@ a:active > img {
     grid-template-columns: 48px 1fr;
     align-items: center;
 }
-/*
-.trending > a:nth-child(2) {
-    grid-area: 1 / 1 / 3 / 2;
-}
-*/
+
 .trending > a > img {
     height: 48px;
     width: 48px;
