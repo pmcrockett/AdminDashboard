@@ -21,9 +21,9 @@ themeButton.addEventListener("click", function() {
         root.style.setProperty("--panes-bg-filter", "hard-light");
     } else {
         root.style.setProperty("--theme", "dark");
-        root.style.setProperty("--main-bg-col", "#060108");
+        root.style.setProperty("--main-bg-col", "#030003");
         root.style.setProperty("--lower-bg-col", "#525968");
-        root.style.setProperty("--sidebar-bg-col", "#0f0518");
+        root.style.setProperty("--sidebar-bg-col", "#120030");
         root.style.setProperty("--hover-col", "#ffb62f");
         root.style.setProperty("--active-col", "#d68915");
         root.style.setProperty("--link-col", "#ffe884");
@@ -42,6 +42,7 @@ fontSizeUp.addEventListener("click", function() {
 
     if (size < 48) {
         root.style.setProperty("--font-size-base", String(size + 2) + "px");
+        root.style.setProperty("--project-pane-w", String(Math.max(size * 12, 200)) + "px");
     }
 });
 
@@ -50,6 +51,7 @@ fontSizeDown.addEventListener("click", function() {
 
     if (size > 4) {
         root.style.setProperty("--font-size-base", String(size - 2) + "px");
+        root.style.setProperty("--project-pane-w", String(Math.max(size * 12, 200)) + "px");
     }
 });
 

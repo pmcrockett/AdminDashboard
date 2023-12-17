@@ -10,11 +10,11 @@
     color: var(--text-light-col);
 }
 
-img {
+.icon {
     filter: var(--link-col-filter);
 }
 
-button > img {
+button > .icon {
     filter: var(--text-dark-col-filter);
 }
 
@@ -32,12 +32,21 @@ a:active {
     color: var(--active-col);
 }
 
-a > img:hover, a:hover > img, .trending > a:hover + a > img {
+a:hover > .profile-img {
+    filter: brightness(115%);
+}
+
+a > .icon:hover, a:hover > .icon {
     filter: var(--hover-col-filter);
 }
 
-a:active > img {
+a:active > .icon {
     filter: var(--active-col-filter);
+}
+
+.project-pane:hover {
+    background-color: var(--sidebar-bg-col);
+    cursor: pointer;
 }
 
 :root {
@@ -56,6 +65,7 @@ a:active > img {
     --text-dark-col-filter: invert(95%) sepia(2%) saturate(1227%) hue-rotate(356deg) brightness(106%) contrast(101%);
     --panes-bg-filter: hard-light;
     --font-size-base: 14px;
+    --project-pane-w: 200px;
     font-size: var(--font-size-base);
 }
 
@@ -119,6 +129,7 @@ a:active > img {
 
 .content {
     display: grid;
+    grid-template-columns: auto;
     grid-template-rows: auto 1fr;
 }
 
@@ -186,6 +197,23 @@ a:active > img {
 .account > a > img {
     height: 32px;
     width: 32px;
+}
+
+.account-profile {
+    display: grid;
+    align-items: center;
+}
+
+.account-profile > a {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.account-profile > a > .profile-img {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
 }
 
 .font-size {
@@ -260,7 +288,7 @@ a:active > img {
     background-color: var(--lower-bg-col);
     background-blend-mode: var(--panes-bg-filter);
     display: grid;
-    grid-template-columns: 1fr minmax(200px, min-content);
+    grid-template-columns: 1fr clamp(175px, 40%, var(--project-pane-w));
     grid-template-rows: minmax(24px, max-content) 1fr;
     column-gap: 24px;
     padding: 0px 24px 24px 24px;
@@ -270,22 +298,15 @@ a:active > img {
     grid-area: 2 / 1 / 3 / 2;
     display: grid;
     gap: 24px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: minmax(200px, max-content);
-}
-
-.right-panes {
-    display: grid;
-    grid-area: 1 / 2 / 3 / 3;
-    grid-template-rows: minmax(24px, max-content) max-content;
-    grid-auto-rows: minmax(48px, max-content) max-content;
-    align-items: end;
+    grid-template-columns: repeat(auto-fill, minmax(var(--project-pane-w), 1fr));
+    grid-auto-rows: minmax(var(--project-pane-w), max-content);
 }
 
 .pane {
     background-color: var(--main-bg-col);
     border-radius: 8px;
     box-shadow: 1px 1px 4px 0.3px var(--active-col);
+    overflow-wrap: anywhere;
 }
 
 .project-pane-title {
@@ -296,6 +317,7 @@ a:active > img {
 
 .project-pane {
     display: grid;
+    grid-template-columns: 100%;
     grid-template-rows: auto 1fr max-content;
     justify-content: stretch;
     border-left-style: solid;
@@ -345,6 +367,15 @@ a:active > img {
     grid-area: 1 / 1 / 3 / 2;
 }
 
+.right-panes {
+    display: grid;
+    grid-area: 1 / 2 / 3 / 3;
+    grid-template-columns: 100%;
+    grid-template-rows: minmax(24px, max-content) max-content;
+    grid-auto-rows: minmax(48px, max-content) max-content;
+    align-items: end;
+}
+
 .announcements-pane {
     display: grid;
     align-items: start;
@@ -363,7 +394,7 @@ a:active > img {
 .announcement:nth-child(1n + 2) {
     border-top-style: solid;
     border-top-width: 1px;
-    border-top-color: var(--lower-bg-col);
+    border-top-color: var(--text-light-col);
 }
 
 .info-header {
@@ -385,6 +416,7 @@ a:active > img {
 .trending > a > img {
     height: 48px;
     width: 48px;
+    margin-right: 4px;
 }
 
 .trending > a:first-child {
@@ -392,8 +424,10 @@ a:active > img {
     font-weight: bold;
     display: flex;
     height: 100%;
+    width: 100%;
     align-self: start;
     grid-area: 1 / 1 / 3 / 3;
+    margin-right: 20px;
 }
 
 .trending > a:first-child > img {
@@ -402,4 +436,5 @@ a:active > img {
 
 .trending > a:nth-child(2) {
     grid-area: 2 / 2 / 3 / 3;
+    margin-left: 4px;
 }

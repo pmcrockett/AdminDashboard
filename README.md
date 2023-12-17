@@ -1,2 +1,2 @@
 # AdminDashboard
-Page layout for an admin dashboard coded in HTML/CSS. Extensive use of CSS Grid.
+Page layout for an admin dashboard coded in HTML/CSS/JavaScript featuring extensive use of CSS Grid. Page contents flow with browser size, and extreme font sizes don't break the layout. Font size and light/dark mode can be changed with the buttons in the upper right; all other buttons and links are inactive.
